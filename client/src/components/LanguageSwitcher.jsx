@@ -20,6 +20,15 @@ const LanguageSwitcher = () => {
   const handleLanguageChange = (langCode) => {
     i18n.changeLanguage(langCode);
     setIsOpen(false);
+    
+    // Set RTL direction for Arabic
+    if (langCode === 'ar') {
+      document.documentElement.setAttribute('dir', 'rtl');
+      document.documentElement.setAttribute('lang', 'ar');
+    } else {
+      document.documentElement.setAttribute('dir', 'ltr');
+      document.documentElement.setAttribute('lang', langCode);
+    }
   };
 
   return (

@@ -31,8 +31,26 @@ const Footer = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex space-x-4"
+            className="flex items-center space-x-4"
           >
+            <a
+              href="/guide"
+              className="text-portfolio-gray-400 hover:text-white transition-colors duration-300 flex items-center space-x-2"
+              title="User Guide"
+            >
+              <i className="fas fa-book text-lg"></i>
+              <span className="hidden sm:inline text-sm">Guide</span>
+            </a>
+            
+            <a
+              href="/admin"
+              className="text-portfolio-gray-400 hover:text-white transition-colors duration-300 flex items-center space-x-2"
+              title="Admin Panel"
+            >
+              <i className="fas fa-shield-alt text-lg"></i>
+              <span className="hidden sm:inline text-sm">Admin</span>
+            </a>
+            
             <motion.button
               onClick={scrollToTop}
               whileHover={{ scale: 1.1, y: -2 }}
