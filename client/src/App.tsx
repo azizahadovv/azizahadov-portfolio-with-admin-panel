@@ -12,13 +12,16 @@ import AdminPanel from "./components/AdminPanel.jsx";
 import UserGuide from "./components/UserGuide.jsx";
 import "./lib/i18n";
 
+
+
 function Router() {
   return (
+    // In your Router component
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/admin" component={AdminPanel} />
       <Route path="/guide" component={UserGuide} />
-      <Route component={NotFound} />
+      <Route component={NotFound} /> {/* Your custom 404 component */}
     </Switch>
   );
 }
