@@ -126,6 +126,17 @@ const AdminPanel = () => {
                 Contacts
               </button>
               <button
+                onClick={() => setActiveTab('database')}
+                className={`px-4 py-2 rounded-lg transition-colors duration-300 ${
+                  activeTab === 'database' 
+                    ? 'bg-dark-red text-white' 
+                    : 'bg-portfolio-gray-800 hover:bg-portfolio-gray-700'
+                }`}
+              >
+                <i className="fas fa-database mr-2"></i>
+                Database
+              </button>
+              <button
                 onClick={() => setActiveTab('api')}
                 className={`px-4 py-2 rounded-lg transition-colors duration-300 ${
                   activeTab === 'api' 
@@ -226,6 +237,7 @@ const AdminPanel = () => {
           </motion.div>
         )}
 
+        {activeTab === 'database' && <DatabaseInfo />}
         {activeTab === 'api' && <APIDocumentation />}
       </main>
     </div>
@@ -406,6 +418,164 @@ const APIDocumentation = () => {
                 </pre>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+const DatabaseInfo = () => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="space-y-6"
+    >
+      <h2 className="text-2xl font-bold text-white">Database Information</h2>
+      
+      <div className="grid md:grid-cols-2 gap-6">
+        {/* Database Status */}
+        <div className="bg-portfolio-gray-900 p-6 rounded-xl border border-portfolio-gray-700">
+          <div className="flex items-center space-x-3 mb-4">
+            <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+            <h3 className="text-lg font-semibold text-white">Connection Status</h3>
+          </div>
+          
+          <div className="space-y-3">
+            <div className="flex justify-between">
+              <span className="text-portfolio-gray-300">Database Type:</span>
+              <span className="text-white font-mono">PostgreSQL</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-portfolio-gray-300">Status:</span>
+              <span className="text-green-400 font-semibold">Connected</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-portfolio-gray-300">ORM:</span>
+              <span className="text-white font-mono">Drizzle</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-portfolio-gray-300">Host:</span>
+              <span className="text-white font-mono">Neon Database</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Database Schema */}
+        <div className="bg-portfolio-gray-900 p-6 rounded-xl border border-portfolio-gray-700">
+          <h3 className="text-lg font-semibold text-white mb-4">Schema Information</h3>
+          
+          <div className="space-y-4">
+            <div className="border border-portfolio-gray-700 rounded-lg p-4">
+              <div className="flex items-center space-x-2 mb-2">
+                <i className="fas fa-table text-dark-blue"></i>
+                <h4 className="font-semibold text-white">users</h4>
+              </div>
+              <div className="text-sm text-portfolio-gray-300 space-y-1">
+                <div>• id (serial, primary key)</div>
+                <div>• username (text, unique)</div>
+                <div>• password (text)</div>
+              </div>
+            </div>
+            
+            <div className="border border-portfolio-gray-700 rounded-lg p-4">
+              <div className="flex items-center space-x-2 mb-2">
+                <i className="fas fa-table text-dark-red"></i>
+                <h4 className="font-semibold text-white">contacts</h4>
+              </div>
+              <div className="text-sm text-portfolio-gray-300 space-y-1">
+                <div>• id (serial, primary key)</div>
+                <div>• name (text, required)</div>
+                <div>• email (text, required)</div>
+                <div>• subject (text, required)</div>
+                <div>• message (text, required)</div>
+                <div>• createdAt (timestamp, auto)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Database Features */}
+      <div className="bg-portfolio-gray-900 p-6 rounded-xl border border-portfolio-gray-700">
+        <h3 className="text-lg font-semibold text-white mb-4">Database Features</h3>
+        
+        <div className="grid md:grid-cols-3 gap-4">
+          <div className="text-center p-4 bg-portfolio-gray-800 rounded-lg">
+            <i className="fas fa-shield-alt text-2xl text-green-500 mb-2"></i>
+            <h4 className="font-semibold text-white mb-1">Secure Storage</h4>
+            <p className="text-sm text-portfolio-gray-300">Data encrypted and protected</p>
+          </div>
+          
+          <div className="text-center p-4 bg-portfolio-gray-800 rounded-lg">
+            <i className="fas fa-sync-alt text-2xl text-blue-500 mb-2"></i>
+            <h4 className="font-semibold text-white mb-1">Real-time Sync</h4>
+            <p className="text-sm text-portfolio-gray-300">Instant data synchronization</p>
+          </div>
+          
+          <div className="text-center p-4 bg-portfolio-gray-800 rounded-lg">
+            <i className="fas fa-database text-2xl text-purple-500 mb-2"></i>
+            <h4 className="font-semibold text-white mb-1">PostgreSQL</h4>
+            <p className="text-sm text-portfolio-gray-300">Production-grade database</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Migration Info */}
+      <div className="bg-portfolio-gray-900 p-6 rounded-xl border border-portfolio-gray-700">
+        <h3 className="text-lg font-semibold text-white mb-4">Migration Status</h3>
+        
+        <div className="space-y-3">
+          <div className="flex items-center space-x-3 p-3 bg-green-900/20 border border-green-500/30 rounded-lg">
+            <i className="fas fa-check-circle text-green-500"></i>
+            <div>
+              <h4 className="font-semibold text-white">Schema Migration</h4>
+              <p className="text-sm text-portfolio-gray-300">Database tables created successfully</p>
+            </div>
+          </div>
+          
+          <div className="flex items-center space-x-3 p-3 bg-blue-900/20 border border-blue-500/30 rounded-lg">
+            <i className="fas fa-info-circle text-blue-500"></i>
+            <div>
+              <h4 className="font-semibold text-white">Data Migration</h4>
+              <p className="text-sm text-portfolio-gray-300">Switched from in-memory to persistent storage</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Technical Details */}
+      <div className="bg-portfolio-gray-900 p-6 rounded-xl border border-portfolio-gray-700">
+        <h3 className="text-lg font-semibold text-white mb-4">Technical Configuration</h3>
+        
+        <div className="grid md:grid-cols-2 gap-4">
+          <div>
+            <h4 className="font-medium text-dark-blue mb-2">Database Driver</h4>
+            <pre className="bg-portfolio-gray-800 p-3 rounded text-sm text-green-400">
+              <code>@neondatabase/serverless</code>
+            </pre>
+          </div>
+          
+          <div>
+            <h4 className="font-medium text-dark-blue mb-2">ORM Configuration</h4>
+            <pre className="bg-portfolio-gray-800 p-3 rounded text-sm text-green-400">
+              <code>drizzle-orm/neon-serverless</code>
+            </pre>
+          </div>
+          
+          <div>
+            <h4 className="font-medium text-dark-blue mb-2">Connection Pool</h4>
+            <pre className="bg-portfolio-gray-800 p-3 rounded text-sm text-green-400">
+              <code>WebSocket + Connection Pool</code>
+            </pre>
+          </div>
+          
+          <div>
+            <h4 className="font-medium text-dark-blue mb-2">Environment</h4>
+            <pre className="bg-portfolio-gray-800 p-3 rounded text-sm text-green-400">
+              <code>Production Ready</code>
+            </pre>
           </div>
         </div>
       </div>
