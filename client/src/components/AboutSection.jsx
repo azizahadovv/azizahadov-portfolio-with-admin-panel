@@ -49,29 +49,97 @@ const AboutSection = () => {
             initial={{ opacity: 0, x: -50 }}
             animate={isVisible ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative"
           >
-            {/* Professional photo placeholder */}
-            <div className="relative">
+            {/* Skills grid background */}
+            <div className="absolute inset-0 grid grid-cols-3 gap-4 opacity-10">
+              {Array.from({length: 9}).map((_, i) => (
+                <motion.div
+                  key={i}
+                  animate={{ 
+                    scale: [1, 1.1, 1],
+                    opacity: [0.1, 0.3, 0.1]
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    delay: i * 0.2
+                  }}
+                  className="w-16 h-16 bg-dark-blue rounded-lg"
+                />
+              ))}
+            </div>
+
+            {/* Experience timeline */}
+            <div className="relative z-10 space-y-8">
               <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="w-80 h-80 mx-auto bg-gradient-to-br from-dark-blue to-dark-red rounded-full p-1"
+                initial={{ opacity: 0, x: -30 }}
+                animate={isVisible ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="flex items-center space-x-4"
               >
-                <div className="w-full h-full bg-portfolio-gray-800 rounded-full flex items-center justify-center">
-                  <i className="fas fa-user text-6xl text-portfolio-gray-400"></i>
+                <div className="w-12 h-12 bg-dark-red rounded-full flex items-center justify-center">
+                  <i className="fas fa-graduation-cap text-white"></i>
+                </div>
+                <div>
+                  <h4 className="text-lg font-semibold text-white">2021 - Present</h4>
+                  <p className="text-portfolio-gray-300">Full Stack Developer</p>
                 </div>
               </motion.div>
+
               <motion.div
-                animate={{
-                  y: [0, -10, 0]
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                className="absolute -top-4 -right-4 w-24 h-24 bg-dark-red rounded-full flex items-center justify-center"
+                initial={{ opacity: 0, x: -30 }}
+                animate={isVisible ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                className="flex items-center space-x-4 ml-8"
               >
-                <i className="fas fa-code text-2xl text-white"></i>
+                <div className="w-12 h-12 bg-dark-blue rounded-full flex items-center justify-center">
+                  <i className="fas fa-code text-white"></i>
+                </div>
+                <div>
+                  <h4 className="text-lg font-semibold text-white">50+ Projects</h4>
+                  <p className="text-portfolio-gray-300">Completed Successfully</p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                animate={isVisible ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.8 }}
+                className="flex items-center space-x-4"
+              >
+                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center">
+                  <i className="fas fa-award text-white"></i>
+                </div>
+                <div>
+                  <h4 className="text-lg font-semibold text-white">Expert Level</h4>
+                  <p className="text-portfolio-gray-300">Modern Technologies</p>
+                </div>
+              </motion.div>
+
+              {/* Animated coding window */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={isVisible ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.8, delay: 1 }}
+                className="bg-portfolio-gray-900 rounded-lg p-4 border border-portfolio-gray-700 mt-8"
+              >
+                <div className="flex items-center space-x-2 mb-3">
+                  <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                  <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                </div>
+                <div className="text-sm font-mono text-green-400">
+                  <span className="text-blue-400">const</span> developer = {'{'}
+                  <br />
+                  &nbsp;&nbsp;<span className="text-yellow-300">name:</span> <span className="text-green-300">'Azizbek Ahadov'</span>,
+                  <br />
+                  &nbsp;&nbsp;<span className="text-yellow-300">skills:</span> [<span className="text-green-300">'React'</span>, <span className="text-green-300">'Node.js'</span>, <span className="text-green-300">'Java'</span>],
+                  <br />
+                  &nbsp;&nbsp;<span className="text-yellow-300">passion:</span> <span className="text-green-300">'Building amazing apps'</span>
+                  <br />
+                  {'}'};
+                </div>
               </motion.div>
             </div>
           </motion.div>

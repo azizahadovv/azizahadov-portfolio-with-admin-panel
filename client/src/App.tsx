@@ -6,12 +6,18 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 // @ts-ignore
 import Home from "./pages/Home.jsx";
+// @ts-ignore
+import AdminPanel from "./components/AdminPanel.jsx";
+// @ts-ignore
+import UserGuide from "./components/UserGuide.jsx";
 import "./lib/i18n";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/admin" component={AdminPanel} />
+      <Route path="/guide" component={UserGuide} />
       <Route component={NotFound} />
     </Switch>
   );

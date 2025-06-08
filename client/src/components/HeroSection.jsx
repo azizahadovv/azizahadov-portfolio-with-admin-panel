@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useTypingAnimation } from '../hooks/useTypingAnimation';
+import profileImage from '@assets/b7ab5e53-5adc-4dd1-911f-a8b54d0c0353_1749357787155.jpg';
 
 const HeroSection = () => {
   const { t } = useTranslation();
@@ -77,81 +78,139 @@ const HeroSection = () => {
         />
       </div>
 
-      <div className="container mx-auto px-6 text-center z-10 relative">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-        >
-          <motion.h1
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-white via-dark-blue to-dark-red bg-clip-text text-transparent"
-          >
-            {t('hero.name')}
-          </motion.h1>
-          
-          <div className="text-2xl md:text-4xl mb-8 h-16 relative">
-            <span className="inline-block border-r-2 border-dark-red">
-              {displayText}
-            </span>
-          </div>
-          
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.6 }}
-            className="text-xl md:text-2xl text-portfolio-gray-300 mb-12 max-w-4xl mx-auto"
-          >
-            {t('hero.subtitle')}
-          </motion.p>
-          
+      <div className="container mx-auto px-6 z-10 relative">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          {/* Profile Image Side */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.8 }}
-            className="flex flex-wrap justify-center gap-6 mb-12"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+            className="flex justify-center"
           >
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => scrollToSection('projects')}
-              className="px-8 py-4 bg-dark-red hover:bg-red-600 text-white rounded-lg font-semibold transition-all duration-300"
-            >
-              {t('hero.viewWork')}
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => scrollToSection('contact')}
-              className="px-8 py-4 border-2 border-dark-blue hover:bg-dark-blue text-white rounded-lg font-semibold transition-all duration-300"
-            >
-              {t('hero.getInTouch')}
-            </motion.button>
+            <div className="relative">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="relative w-80 h-80 rounded-full overflow-hidden border-4 border-dark-blue shadow-2xl"
+              >
+                <img 
+                  src={profileImage}
+                  alt="Azizbek Ahadov"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-dark-blue/20 to-dark-red/20"></div>
+              </motion.div>
+              
+              {/* Floating elements around image */}
+              <motion.div
+                animate={{
+                  y: [0, -10, 0],
+                  rotate: [0, 5, 0]
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                className="absolute -top-4 -right-4 w-16 h-16 bg-dark-red rounded-full flex items-center justify-center shadow-lg"
+              >
+                <i className="fas fa-code text-white text-lg"></i>
+              </motion.div>
+              
+              <motion.div
+                animate={{
+                  y: [0, 10, 0],
+                  rotate: [0, -5, 0]
+                }}
+                transition={{
+                  duration: 2.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.5
+                }}
+                className="absolute -bottom-4 -left-4 w-14 h-14 bg-dark-blue rounded-full flex items-center justify-center shadow-lg"
+              >
+                <i className="fas fa-laptop text-white"></i>
+              </motion.div>
+            </div>
           </motion.div>
 
-          {/* Social Links */}
+          {/* Content Side */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1 }}
-            className="flex justify-center space-x-6"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.3 }}
+            className="text-left"
           >
-            {socialLinks.map((link, index) => (
-              <motion.a
-                key={index}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.2, y: -5 }}
-                className={`text-3xl transition-colors duration-300 ${link.color}`}
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.5 }}
+              className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-dark-blue to-dark-red bg-clip-text text-transparent"
+            >
+              {t('hero.name')}
+            </motion.h1>
+            
+            <div className="text-xl md:text-3xl mb-8 h-12 relative text-dark-blue font-semibold">
+              <span className="inline-block border-r-2 border-dark-red">
+                {displayText}
+              </span>
+            </div>
+            
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.7 }}
+              className="text-lg md:text-xl text-portfolio-gray-300 mb-8 max-w-2xl leading-relaxed"
+            >
+              {t('hero.subtitle')}
+            </motion.p>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.9 }}
+              className="flex flex-wrap gap-4 mb-8"
+            >
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => scrollToSection('projects')}
+                className="px-8 py-4 bg-dark-red hover:bg-red-600 text-white rounded-lg font-semibold transition-all duration-300 shadow-lg"
               >
-                <i className={link.icon}></i>
-              </motion.a>
-            ))}
+                {t('hero.viewWork')}
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => scrollToSection('contact')}
+                className="px-8 py-4 border-2 border-dark-blue hover:bg-dark-blue text-white rounded-lg font-semibold transition-all duration-300"
+              >
+                {t('hero.getInTouch')}
+              </motion.button>
+            </motion.div>
+
+            {/* Social Links */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 1.1 }}
+              className="flex space-x-4"
+            >
+              {socialLinks.map((link, index) => (
+                <motion.a
+                  key={index}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.2, y: -5 }}
+                  className={`text-2xl transition-colors duration-300 ${link.color} p-3 rounded-full bg-portfolio-gray-900 hover:bg-portfolio-gray-800`}
+                >
+                  <i className={link.icon}></i>
+                </motion.a>
+              ))}
+            </motion.div>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

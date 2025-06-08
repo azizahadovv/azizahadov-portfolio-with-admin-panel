@@ -2,6 +2,83 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
 const resources = {
+  ar: {
+    translation: {
+      // Navigation
+      home: "الرئيسية",
+      about: "نبذة عني",
+      skills: "المهارات",
+      projects: "المشاريع",
+      contact: "اتصل بي",
+      
+      // Hero Section
+      "hero.name": "عزيزبك أحدوف",
+      "hero.titles": ["مطور Full Stack", "مطور ويب", "مطور Backend", "مطور Frontend", "مطور بوت"],
+      "hero.subtitle": "إنشاء تجارب رقمية بتقنيات حديثة وحلول إبداعية",
+      "hero.viewWork": "عرض أعمالي",
+      "hero.getInTouch": "تواصل معي",
+      
+      // About Section
+      "about.title": "نبذة عني",
+      "about.heading": "مطور شغوف وحلال المشاكل",
+      "about.description1": "أنا عزيزبك أحدوف، مطور full-stack مخصص مع خبرة في تقنيات الويب الحديثة. أتخصص في إنشاء تطبيقات قوية وقابلة للتوسع تقدم تجارب مستخدم استثنائية.",
+      "about.description2": "شغفي يكمن في تحويل المشاكل المعقدة إلى حلول أنيقة، باستخدام التقنيات المتطورة لبناء تطبيقات تصنع الفرق.",
+      "about.experience": "الخبرة",
+      "about.experienceValue": "3+ سنوات",
+      "about.projects": "المشاريع",
+      "about.projectsValue": "50+ مكتمل",
+      "about.website": "الموقع",
+      "about.location": "الموقع",
+      "about.locationValue": "أوزبكستان",
+      
+      // Skills Section
+      "skills.title": "المهارات والخبرة",
+      "skills.technologies": "التقنيات التي أعمل بها",
+      "skills.expertLevel": "مستوى خبير",
+      "skills.advancedLevel": "مستوى متقدم",
+      
+      // Projects Section
+      "projects.title": "مشاريع مختارة",
+      "projects.liveDemo": "عرض مباشر",
+      "projects.viewCode": "الكود",
+      "projects.viewAll": "عرض جميع المشاريع",
+      "projects.ecommerce.title": "منصة تجارة إلكترونية",
+      "projects.ecommerce.description": "حل تجارة إلكترونية متكامل مبني بـ React.js و Node.js و MongoDB. يتضمن مصادقة المستخدم وتكامل المدفوعات ولوحة الإدارة.",
+      "projects.bot.title": "مساعد بوت تليجرام",
+      "projects.bot.description": "بوت تليجرام ذكي مع قدرات معالجة اللغة الطبيعية. يتضمن إدارة المستخدمين والردود التلقائية والتكامل مع APIs خارجية.",
+      "projects.dashboard.title": "لوحة تحليلات",
+      "projects.dashboard.description": "لوحة تحليلات في الوقت الفعلي مبنية بـ Next.js و Spring Boot. تتضمن تصور البيانات وإدارة المستخدمين وقدرات التقارير.",
+      
+      // Contact Section
+      "contact.title": "تواصل معي",
+      "contact.subtitle": "مستعد لتحويل أفكارك إلى واقع؟ دعنا نناقش مشروعك القادم وننشئ شيئاً رائعاً معاً.",
+      "contact.sendMessage": "إرسال رسالة",
+      "contact.name": "اسمك",
+      "contact.email": "عنوان البريد الإلكتروني",
+      "contact.subject": "الموضوع",
+      "contact.message": "الرسالة",
+      "contact.messagePlaceholder": "أخبرني عن مشروعك...",
+      "contact.send": "إرسال الرسالة",
+      "contact.copyEmail": "نسخ البريد الإلكتروني",
+      "contact.emailCopied": "تم النسخ!",
+      "contact.startChat": "بدء المحادثة",
+      "contact.viewProfile": "عرض الملف الشخصي",
+      "contact.follow": "متابعة",
+      "contact.available": "متاح للعمل الحر",
+      "contact.online": "متصل",
+      
+      // Footer
+      "footer.rights": "جميع الحقوق محفوظة.",
+      
+      // Form Messages
+      "form.success": "تم إرسال الرسالة بنجاح!",
+      "form.error": "فشل في إرسال الرسالة. حاول مرة أخرى.",
+      "form.validation.name": "الاسم مطلوب",
+      "form.validation.email": "بريد إلكتروني صحيح مطلوب",
+      "form.validation.subject": "الموضوع مطلوب",
+      "form.validation.message": "الرسالة مطلوبة"
+    }
+  },
   en: {
     translation: {
       // Navigation
