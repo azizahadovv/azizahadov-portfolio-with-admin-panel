@@ -4,11 +4,9 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
-import Home from "@/pages/Home";
+// @ts-ignore
+import Home from "./pages/Home.jsx";
 import "./lib/i18n";
-
-// Font Awesome CSS
-import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
 
 function Router() {
   return (

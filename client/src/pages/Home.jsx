@@ -1,11 +1,11 @@
-import LanguageSwitcher from '../components/LanguageSwitcher';
-import FloatingNavigation from '../components/FloatingNavigation';
-import HeroSection from '../components/HeroSection';
-import AboutSection from '../components/AboutSection';
-import SkillsSection from '../components/SkillsSection';
-import ProjectsSection from '../components/ProjectsSection';
-import ContactSection from '../components/ContactSection';
-import Footer from '../components/Footer';
+import LanguageSwitcher from '../components/LanguageSwitcher.jsx';
+import FloatingNavigation from '../components/FloatingNavigation.jsx';
+import HeroSection from '../components/HeroSection.jsx';
+import AboutSection from '../components/AboutSection.jsx';
+import SkillsSection from '../components/SkillsSection.jsx';
+import ProjectsSection from '../components/ProjectsSection.jsx';
+import ContactSection from '../components/ContactSection.jsx';
+import Footer from '../components/Footer.jsx';
 
 const Home = () => {
   return (

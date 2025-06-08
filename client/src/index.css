@@ -66,7 +66,7 @@
   }
 
   body {
-    @apply font-sans antialiased bg-portfolio-black text-portfolio-white overflow-x-hidden;
+    @apply font-sans antialiased bg-black text-white overflow-x-hidden;
   }
 }
 
@@ -93,6 +93,18 @@
   
   .border-dark-blue {
     border-color: var(--dark-blue);
+  }
+
+  .bg-portfolio-black {
+    background-color: var(--portfolio-black);
+  }
+
+  .bg-portfolio-white {
+    background-color: var(--portfolio-white);
+  }
+
+  .text-portfolio-white {
+    color: var(--portfolio-white);
   }
 
   .bg-portfolio-gray-900 {
