@@ -1,53 +1,48 @@
-import type { Express } from "express";
-import { createServer, type Server } from "http";
-import { storage } from "./storage";
+import { Express } from "express";
+import { createServer, Server } from "http";
 import { insertContactSchema } from "@shared/schema";
 import { z } from "zod";
+import Contact from "./models/Contact.ts";
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  // Contact form submission
+  // Kontakt yuborish
   app.post("/api/contact", async (req, res) => {
     try {
       const validatedData = insertContactSchema.parse(req.body);
-      const contact = await storage.createContact(validatedData);
-      
-      // In a real application, you would send an email here
-      // For now, we'll just store the contact in memory
-      
+      const contact = await Contact.create(validatedData);
       res.status(201).json({ 
         success: true, 
-        message: "Message sent successfully!",
-        contact: contact 
+        message: "Xabaringiz yuborildi!",
+        data: contact 
       });
+
     } catch (error) {
+      console.error("Kontakt yuborishda xato:", error);
+      
       if (error instanceof z.ZodError) {
-        res.status(400).json({ 
-          success: false, 
-          message: "Invalid form data", 
-          errors: error.errors 
-        });
-      } else {
-        res.status(500).json({ 
-          success: false, 
-          message: "Failed to send message" 
+        return res.status(400).json({
+          success: false,
+          message: "Noto'g'ri ma'lumot",
+          errors: error.errors
         });
       }
-    }
-  });
-
-  // Get all contacts (for admin purposes)
-  app.get("/api/contacts", async (req, res) => {
-    try {
-      const contacts = await storage.getContacts();
-      res.json(contacts);
-    } catch (error) {
-      res.status(500).json({ 
-        success: false, 
-        message: "Failed to fetch contacts" 
+      
+      res.status(500).json({
+        success: false,
+        message: "Xabarni yuborishda xato yuz berdi"
       });
     }
   });
 
-  const httpServer = createServer(app);
-  return httpServer;
+  // Barcha kontaktlar
+app.get("/api/contacts", async (req, res) => {
+  try {
+    const contacts = await Contact.find().sort({ createdAt: -1 });
+    res.json({ success: true, data: contacts }); // data array bo'lishi kerak
+  } catch (error) {
+    res.status(500).json({ success: false, message: "Kontaktlarni olishda xato" });
+  }
+});
+
+  return createServer(app);
 }

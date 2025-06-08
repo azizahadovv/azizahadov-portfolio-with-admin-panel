@@ -203,7 +203,7 @@ const HeroSection = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.2, y: -5 }}
-                  className={`text-2xl transition-colors duration-300 ${link.color} p-3 rounded-full bg-portfolio-gray-900 hover:bg-portfolio-gray-800`}
+                  className={`text-2xl transition-colors duration-300 ${link.color} px-4 py-3 rounded-full bg-portfolio-gray-900 hover:bg-portfolio-gray-800`}
                 >
                   <i className={link.icon}></i>
                 </motion.a>
